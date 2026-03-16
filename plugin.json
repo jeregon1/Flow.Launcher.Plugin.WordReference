@@ -5,8 +5,8 @@
 	"Description": "WordReference translations (es, en, fr, it)",
 	"Author": "LeoDupont",
 	"Version": "1.0.1",
-	"Language": "executable",
+	"Language": "javascript",
 	"Website": "https://github.com/LeoDupont/Flow.Launcher.Plugin.WordReference",
-	"ExecuteFileName": "start.bat",
+	"ExecuteFileName": "./src/main.js",
 	"IcoPath": "images\\favicon-32x32.png"
 }
