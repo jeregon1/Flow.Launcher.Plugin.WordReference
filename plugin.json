@@ -3,10 +3,10 @@
 	"ActionKeyword": "*",
 	"Name": "WordReference",
 	"Description": "WordReference translations (es, en, fr, it)",
-	"Author": "LeoDupont",
-	"Version": "1.0.1",
+	"Author": "LeoDupont and jeregon1",
+	"Version": "1.1.0",
 	"Language": "javascript",
-	"Website": "https://github.com/LeoDupont/Flow.Launcher.Plugin.WordReference",
+	"Website": "https://github.com/jeregon1/Flow.Launcher.Plugin.WordReference",
 	"ExecuteFileName": "./src/main.js",
 	"IcoPath": "images\\favicon-32x32.png"
 }
