@@ -46,7 +46,7 @@ export async function query(parameters) {
 	if (match?.length >= 4) {
 		const fromLang = match[1];
 		const toLang = match[2];
-		const phrase = match[3];
+		const phrase = removeAccents(match[3]);
 
 		// === Querying WordReference ===
 		try {
@@ -78,6 +78,10 @@ function validateLanguages(fromLang, toLang) {
 	return { valid: true };
 }
 
+function removeAccents(str) {
+	return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 function displayTranslations(resp, fromLang, toLang, phrase) {
 	// Flatten translations from each "section":
 	const translations = resp.translations.reduce((acc, section) => {
@@ -85,7 +89,7 @@ function displayTranslations(resp, fromLang, toLang, phrase) {
 		return acc;
 	}, []);
 
-	const wrUrl = `https://www.wordreference.com/${fromLang}${toLang}/${phrase}`;
+	const wrUrl = `https://www.wordreference.com/${fromLang}${toLang}/${encodeURIComponent(phrase)}`;
 
 	const result = translations.map(translation => {
 		const examples = [
