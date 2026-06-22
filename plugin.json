@@ -4,7 +4,7 @@
 	"Name": "WordReference",
 	"Description": "WordReference translations (es, en, fr, it)",
 	"Author": "LeoDupont and jeregon1",
-	"Version": "1.1.0",
+	"Version": "1.2.0",
 	"Language": "javascript",
 	"Website": "https://github.com/jeregon1/Flow.Launcher.Plugin.WordReference",
 	"ExecuteFileName": "./src/main.js",

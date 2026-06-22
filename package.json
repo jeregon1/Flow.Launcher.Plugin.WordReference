@@ -12,7 +12,7 @@
 	"author": "LeoDupont",
 	"license": "ISC",
 	"dependencies": {
-		"open": "^8.4.0",
-		"wordreference-api": "^1.1.0"
+		"cheerio": "^0.22.0",
+		"open": "^8.4.0"
 	}
 }
