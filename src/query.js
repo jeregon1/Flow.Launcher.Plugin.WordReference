@@ -45,6 +45,8 @@ export async function query(parameters) {
 	return sendResult([getSyntaxExampleResult()]);
 }
 
+const WR_COOKIE = "nginx_wr_human=1";
+
 function fetchWordReference(word, fromLang, toLang) {
 	return new Promise((resolve, reject) => {
 		const url = `https://www.wordreference.com/${fromLang}${toLang}/${encodeURIComponent(word)}`;
@@ -55,6 +57,7 @@ function fetchWordReference(word, fromLang, toLang) {
 				"-H", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
 				"-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
 				"-H", "Accept-Language: en-US,en;q=0.9",
+				"-H", `Cookie: ${WR_COOKIE}`,
 				url,
 			], { encoding: "utf-8", timeout: 15000, maxBuffer: 512 * 1024 });
 			resolve(stdout);
@@ -72,9 +75,10 @@ function fetchWordReference(word, fromLang, toLang) {
 				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
 				"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
 				"Accept-Language": "en-US,en;q=0.9",
+				"Cookie": WR_COOKIE,
 			},
 		};
-		makeRequest(options, [], resolve, reject, 0);
+		makeRequest(options, [WR_COOKIE], resolve, reject, 0);
 	});
 }
 
